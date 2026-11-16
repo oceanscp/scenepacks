@@ -17,13 +17,13 @@ test('static helper serves a project prefix and rejects traversal, symlinks and 
   await fs.writeFile(path.join(temp, 'private.txt'), 'private');
   await fs.symlink(path.join(temp, 'private.txt'), path.join(root, 'escape.txt'));
   await fs.mkdir(path.join(root, '.git')); await fs.writeFile(path.join(root, '.git/config'), 'private');
-  const server = await startServer({ root, mountPath: '/ocean-scenepacks' });
+  const server = await startServer({ root, mountPath: '/scenepacks' });
   try {
-    assert.equal(await request(server.origin, '/ocean-scenepacks/'), 200);
+    assert.equal(await request(server.origin, '/scenepacks/'), 200);
     assert.equal(await request(server.origin, '/index.html'), 404, 'only mount path is public');
-    assert.equal(await request(server.origin, '/ocean-scenepacks/escape.txt'), 403, 'symlink cannot escape public root');
-    assert.equal(await request(server.origin, '/ocean-scenepacks/.git/config'), 403, 'private files are forbidden');
-    assert.equal(await request(server.origin, '/ocean-scenepacks/%2e%2e%2fprivate.txt'), 403, 'encoded traversal is forbidden');
-    assert.equal(await request(server.origin, '/ocean-scenepacks/%E0%A4%A'), 400, 'malformed URL does not crash server');
+    assert.equal(await request(server.origin, '/scenepacks/escape.txt'), 403, 'symlink cannot escape public root');
+    assert.equal(await request(server.origin, '/scenepacks/.git/config'), 403, 'private files are forbidden');
+    assert.equal(await request(server.origin, '/scenepacks/%2e%2e%2fprivate.txt'), 403, 'encoded traversal is forbidden');
+    assert.equal(await request(server.origin, '/scenepacks/%E0%A4%A'), 400, 'malformed URL does not crash server');
   } finally { await server.close(); await fs.rm(temp, { recursive: true, force: true }); }
 });

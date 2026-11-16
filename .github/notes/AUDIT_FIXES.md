@@ -31,6 +31,6 @@ npx playwright install --with-deps chromium
 npm run test:e2e
 ```
 
-The update passed six static checks and all four browser suites. Coverage includes the 47 in-app/download assertions, navigation by keyboard and touch, URL/history regressions, real media lifecycle with a tiny intercepted stream, all 249 campaign scene/quality download choices and eighteen axe page/dialog states under the production `/ocean-scenepacks/` prefix. No original multi-gigabyte master was downloaded by the tests.
+The update passed six static checks and all four browser suites. Coverage includes the 47 in-app/download assertions, navigation by keyboard and touch, URL/history regressions, real media lifecycle with a tiny intercepted stream, all 249 campaign scene/quality download choices and eighteen axe page/dialog states under the production `/scenepacks/` prefix. No original multi-gigabyte master was downloaded by the tests.
 
 Physical mobile devices, their actual in-app browsers and complete playback of every master remain separate manual compatibility checks. Automated accessibility checks supplement keyboard checks; they are not a substitute for a complete assistive-technology review.

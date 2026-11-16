@@ -1,13 +1,13 @@
-<a href="https://qstrx.github.io/ocean-scenepacks/">
+<a href="https://oceanscp.github.io/scenepacks/">
   <img src=".github/media/cover.svg" alt="Ocean’s Scenepacks — Call of Duty and SIX." width="1280">
 </a>
 
 <p align="center">
-  <a href="https://qstrx.github.io/ocean-scenepacks/"><strong>Browse the packs</strong></a>
+  <a href="https://oceanscp.github.io/scenepacks/"><strong>Browse the packs</strong></a>
   &nbsp; · &nbsp;
-  <a href="https://qstrx.github.io/ocean-scenepacks/quality.html">Quality guide</a>
+  <a href="https://oceanscp.github.io/scenepacks/quality.html">Quality guide</a>
   &nbsp; · &nbsp;
-  <a href="https://github.com/Qstrx/ocean-scenepacks/issues/new/choose">Leave a note</a>
+  <a href="https://github.com/oceanscp/scenepacks/issues/new/choose">Leave a note</a>
 </p>
 
 <p align="center">
@@ -16,7 +16,7 @@
 
 <br>
 
-<a href="https://qstrx.github.io/ocean-scenepacks/">
+<a href="https://oceanscp.github.io/scenepacks/">
   <img src=".github/media/preview.webp" alt="The archive homepage: Ghost’s Call of Duty collection beside Joe Graves from SIX, with Farah and Graves featured below." width="1280">
 </a>
 
@@ -25,7 +25,7 @@
 | Call of Duty | SIX |
 | :--- | :--- |
 | Character packs, cutscenes, gameplay and trailers. | Joe Graves · Seasons 1–2. |
-| [Browse Call of Duty](https://qstrx.github.io/ocean-scenepacks/cod.html) | [Browse SIX](https://qstrx.github.io/ocean-scenepacks/six.html) |
+| [Browse Call of Duty](https://oceanscp.github.io/scenepacks/cod.html) | [Browse SIX](https://oceanscp.github.io/scenepacks/six.html) |
 
 <br>
 

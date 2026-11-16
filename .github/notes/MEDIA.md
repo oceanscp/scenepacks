@@ -8,7 +8,7 @@ A file entry can also declare local WebVTT captions:
 
 ```js
 {
-  url: 'https://github.com/Qstrx/ocean-scenepacks/releases/download/scenepacks-v2/Price-MW1-4K.mp4',
+  url: 'https://github.com/oceanscp/scenepacks/releases/download/scenepacks-v2/Price-MW1-4K.mp4',
   size: '1.94 GB',
   // Example optional assets: create and verify these files before adding the fields.
   previewUrl: 'assets/media/previews/price-mw1.mp4',
@@ -26,7 +26,7 @@ A file entry can also declare local WebVTT captions:
 
 The example preview paths and size are illustrative; those assets are not included in the repository. Put the optional fields on the individual file object, including each multipart file and each edition that needs them. For SIX, the unsplit episode object is also its file object. For campaign cutscenes, attach the fields to the edition's scene file object used by the player; the detail player uses the 1080p edition for its preview.
 
-Preview URLs must be HTTP(S) on this site's own origin, or HTTPS on one of the permitted media hosts (`github.com`, `release-assets.githubusercontent.com`). Use a directly playable MP4, not a provider's HTML file-viewer page. Invalid optional URLs fall back to the original download. Same-origin relative paths resolve from the HTML page, so `assets/media/...` works under the `/ocean-scenepacks/` GitHub Pages project path. GitHub release URLs should use the stable `/releases/download/...` address, not an expiring CDN redirect.
+Preview URLs must be HTTP(S) on this site's own origin, or HTTPS on one of the permitted media hosts (`github.com`, `release-assets.githubusercontent.com`). Use a directly playable MP4, not a provider's HTML file-viewer page. Invalid optional URLs fall back to the original download. Same-origin relative paths resolve from the HTML page, so `assets/media/...` works under the `/scenepacks/` GitHub Pages project path. GitHub release URLs should use the stable `/releases/download/...` address, not an expiring CDN redirect.
 
 Caption `src` must resolve to this site's own origin. `srclang` is a language tag, such as `en` or `en-GB`; `label` names the track in the native video controls. `default: true` requests that track initially. Multiple tracks are supported. Files are appended as native `<track kind="captions">` elements; the video's controls provide their language selection. Publish `.vtt` files as `text/vtt` and check that the browser loads them without CSP or network errors.
 

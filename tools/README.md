@@ -1,6 +1,6 @@
 # Local tools
 
-`serve.mjs` serves only public site files on loopback, with no build step or dependencies. Both `/` and the production `/ocean-scenepacks/` prefix work. It supports HEAD and byte-range requests for local media.
+`serve.mjs` serves only public site files on loopback, with no build step or dependencies. Both `/` and the production `/scenepacks/` prefix work. It supports HEAD and byte-range requests for local media.
 
 ```sh
 npm run dev

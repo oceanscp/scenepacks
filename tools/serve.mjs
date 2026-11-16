@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Local, dependency-free server with the same /ocean-scenepacks/ base path as Pages. */
+/** Local, dependency-free server with the same /scenepacks/ base path as Pages. */
 import http from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -15,8 +15,8 @@ http.createServer(async (req, res) => {
     let pathname;
     try { pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname); }
     catch { res.writeHead(400).end('Invalid URL'); return; }
-    if (pathname === '/ocean-scenepacks') { res.writeHead(302, { Location: '/ocean-scenepacks/' }).end(); return; }
-    if (pathname.startsWith('/ocean-scenepacks/')) pathname = pathname.slice('/ocean-scenepacks'.length);
+    if (pathname === '/scenepacks') { res.writeHead(302, { Location: '/scenepacks/' }).end(); return; }
+    if (pathname.startsWith('/scenepacks/')) pathname = pathname.slice('/scenepacks'.length);
     if (pathname.endsWith('/')) pathname += 'index.html';
     const filename = path.resolve(root, '.' + pathname);
     const relative = path.relative(root, filename);
@@ -38,4 +38,4 @@ http.createServer(async (req, res) => {
     }
     res.writeHead(200, { ...headers, 'Content-Length': contents.length }).end(req.method === 'HEAD' ? undefined : contents);
   } catch { if (!res.headersSent) res.writeHead(500); res.end('Local server error'); }
-}).listen(port, '127.0.0.1', () => console.log(`Local site: http://127.0.0.1:${port}/ocean-scenepacks/`));
+}).listen(port, '127.0.0.1', () => console.log(`Local site: http://127.0.0.1:${port}/scenepacks/`));

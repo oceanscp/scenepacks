@@ -12,7 +12,7 @@ function silentWave() {
   return data;
 }
 (async () => {
-  const server = await startServer({ mountPath: '/ocean-scenepacks' });
+  const server = await startServer({ mountPath: '/scenepacks' });
   let browser;
   try {
     browser = await launchBrowser();

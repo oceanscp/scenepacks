@@ -19,12 +19,12 @@ function localReference(reference, parent) {
   let pathname;
   if (/^https?:/i.test(reference)) {
     const url = new URL(reference);
-    if (url.origin !== 'https://qstrx.github.io' || !url.pathname.startsWith('/ocean-scenepacks/')) return;
-    pathname = url.pathname.slice('/ocean-scenepacks/'.length);
+    if (url.origin !== 'https://oceanscp.github.io' || !url.pathname.startsWith('/scenepacks/')) return;
+    pathname = url.pathname.slice('/scenepacks/'.length);
     parent = projectRoot;
   } else {
     pathname = reference.split(/[?#]/)[0];
-    if (pathname.startsWith('/ocean-scenepacks/')) { pathname = pathname.slice('/ocean-scenepacks/'.length); parent = projectRoot; }
+    if (pathname.startsWith('/scenepacks/')) { pathname = pathname.slice('/scenepacks/'.length); parent = projectRoot; }
     else if (pathname.startsWith('/')) { pathname = pathname.slice(1); parent = projectRoot; }
   }
   if (!pathname || pathname.endsWith('/')) pathname += 'index.html';
@@ -79,7 +79,7 @@ test('catalog IDs, image paths, file URLs and direct download sizes are valid', 
       return;
     }
     assert.equal(url.hostname, 'github.com', label + ' is a GitHub release download');
-    assert.match(url.pathname, /^\/Qstrx\/ocean-scenepacks\/releases\/download\/.+\.mp4$/, label + ' has a stable release path');
+    assert.match(url.pathname, /^\/oceanscp\/scenepacks\/releases\/download\/.+\.mp4$/, label + ' has a stable release path');
     assert.match(file.run, /^(?:\d+:)?\d{1,2}:\d{2}$/, label + ' duration');
     const size = /^(\d+(?:\.\d+)?)\s+(GB|MB)$/.exec(file.size);
     assert(size, label + ' formatted size');

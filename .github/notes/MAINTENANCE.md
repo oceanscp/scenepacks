@@ -2,7 +2,7 @@
 
 ## Local checks
 
-Run `npm run dev` and open `http://127.0.0.1:8765/ocean-scenepacks/` to match the production base path. Before submitting a change, run:
+Run `npm run dev` and open `http://127.0.0.1:8765/scenepacks/` to match the production base path. Before submitting a change, run:
 
 ```sh
 npm ci
@@ -40,7 +40,7 @@ There is no `earlyAccess` setting. The home, SIX and Quality pages are independe
 
 Keep CSS in `assets/css/`, application scripts in `assets/js/`, metadata in `assets/data/` and media artwork in `assets/images/`. CSS image and font URLs are relative to the stylesheet; HTML and data references are resolved from the public page. Run the static checks after moving an asset.
 
-When changing a versioned script or stylesheet, update its `?v=` reference in every affected HTML page. The site is served from the `/ocean-scenepacks/` project path, so verify links there as well as on localhost. Preserve existing page addresses and release URLs.
+When changing a versioned script or stylesheet, update its `?v=` reference in every affected HTML page. The site is served from the `/scenepacks/` project path, so verify links there as well as on localhost. Preserve existing page addresses and release URLs.
 
 Record third-party artwork sources alongside the assets. MW4 poster records live at `assets/images/cod/mw4/scenes/sources.json`; update provenance and hashes if those posters change. Keep bundled license files with the corresponding assets.
 

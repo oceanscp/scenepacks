@@ -6,7 +6,7 @@ const AxeBuilder = require('@axe-core/playwright').default;
 const { startServer, launchBrowser, blockExternal } = require('./test-helpers.cjs');
 
 (async () => {
-  const server = await startServer({ mountPath: '/ocean-scenepacks' });
+  const server = await startServer({ mountPath: '/scenepacks' });
   let browser;
   try {
     browser = await launchBrowser();
