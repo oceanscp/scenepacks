@@ -1,0 +1,58 @@
+/* Motion for Ocean’s Scenepacks.
+   Pages cross-fade, footage rises in as it scrolls, and every touch answers. Everything
+   here only animates transform, opacity and clip-path, and all of it stands
+   down for reduced motion. */
+
+/* ---------- Between documents ---------------------------------------------
+   Where the browser supports cross-document View Transitions, pages cross-fade. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
+.site-header .brand { view-transition-name: brand; }
+::view-transition-group(*) { animation-duration: .85s; animation-timing-function: cubic-bezier(.16, 1, .3, 1); }
+::view-transition-old(root) { animation: vt-leave .4s ease both; }
+::view-transition-new(root) { animation: vt-enter .6s .12s ease both; }
+@keyframes vt-leave { to { opacity: 0; } }
+@keyframes vt-enter { from { opacity: 0; } }
+
+/* ---------- The wave mark draws itself ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .brand-mark path { stroke-dasharray: 1; animation: mark-draw 1.8s .1s var(--ease-out) backwards; }
+  html.vt-arrival .brand-mark path { animation: none; }
+}
+@keyframes mark-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .action.is-pressed svg { animation: press-drop .5s var(--ease-out); }
+  .action[data-preview].is-pressed svg, .action[data-cod-preview].is-pressed svg { animation: press-pop .45s var(--ease-out); }
+  body:not([data-motion=off]) :is(.action, .transfer-action, .preview-close, .preview-dialog button):active:not(:disabled) { transform: scale(.96); transition: transform .1s ease; }
+}
+@keyframes press-drop { 35% { transform: translateY(5px); } }
+@keyframes press-pop { 35% { transform: scale(1.3); } }
+
+/* ---------- Navigation markers ------------------------------------------------ */
+/* One underline travels between choices, as in AuroraGrab's .tabs__bar. */
+.site-nav.has-motion-marker { position: relative; }
+.has-motion-marker > a::after { display: none; }
+.nav-marker { position: absolute; left: 0; bottom: 24px; height: 2px; width: 1px; background: var(--mint); pointer-events: none; transform-origin: left center; transform: translateX(var(--marker-x, 0px)) scaleX(var(--marker-width, 0)); transition: transform .35s var(--ease); }
+@media (max-width: 760px) { .nav-marker { bottom: 8px; } }
+
+/* ---------- Dialogs ------------------------------------------------------------ */
+dialog.is-closing { pointer-events: none; }
+@keyframes archive-veil-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes archive-veil-out { from { opacity: 1; } to { opacity: 0; } }
+@media (prefers-reduced-motion: no-preference) {
+  body[data-motion=on] dialog[open]::backdrop { animation: archive-veil-in 300ms ease both; }
+  body[data-motion=on] dialog.is-closing::backdrop { animation: archive-veil-out 180ms ease both; }
+}
+.action svg { transition: transform .3s var(--ease-out); }
+
+/* ---------- Reduced motion ------------------------------------------------------
+   Quick color and fade confirmations stay; travel, tilt and scale do not. */
+body[data-motion=off] :is(.cover-frame img, .action svg) { transform: none !important; }
+body[data-motion=off] .nav-marker { transition: none; }
+html:has(body[data-motion=off]) { scroll-behavior: auto; }
+@media (prefers-reduced-motion: reduce) {
+  :is(.cover-frame img, .action svg) { transform: none !important; }
+  .nav-marker { transition: none; }
+}
